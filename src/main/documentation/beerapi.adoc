@@ -1,0 +1,26 @@
+= Beer API
+Gerrit Meier
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[resources-beer-list]]
+=== Listing beers
+
+This is how you will get a list of fresh beers.
+
+==== Response structure
+
+include::{snippets}/beer-list/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/beer-list/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/beer-list/http-response.adoc[]
+
