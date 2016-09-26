@@ -7,6 +7,44 @@ Gerrit Meier
 :toclevels: 2
 :sectlinks:
 
+[[overview]]
+= Overview
+
+Welcome to the latest and greatest beer listing api you will eveer see.
+
+[[resources-index]]
+=== Listing all available resources
+
+[listing]
+....
+include::{snippets}/index-page/curl-request.adoc[]
+....
+
+[listing]
+....
+include::{snippets}/index-page/http-request.adoc[]
+....
+
+[listing]
+....
+include::{snippets}/index-page/http-response.adoc[]
+....
+
+[listing]
+....
+include::{snippets}/index-page/httpie-request.adoc[]
+....
+
+[listing]
+....
+include::{snippets}/index-page/links.adoc[]
+....
+
+[listing]
+....
+include::{snippets}/index-page/response-fields.adoc[]
+....
+
 [[resources-beer-list]]
 === Listing beers
 
