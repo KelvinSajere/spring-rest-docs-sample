@@ -13,8 +13,6 @@ Gerrit Meier
 
 Welcome to the latest and greatest beer listing api you will ever see.
 
-image::avatar.jpg[title="an image"]
-
 [[access-resources]]
 = Access resources
 
