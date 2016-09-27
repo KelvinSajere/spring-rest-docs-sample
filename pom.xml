@@ -71,6 +71,7 @@
 							<sourceDirectory>src/main/documentation</sourceDirectory>
 							<backend>html</backend>
 							<doctype>book</doctype>
+							<imagesDir>img</imagesDir>
 							<attributes>
 								<snippets>${project.build.directory}/generated-snippets</snippets>
 							</attributes>

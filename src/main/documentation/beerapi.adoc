@@ -5,48 +5,46 @@ Gerrit Meier
 :source-highlighter: highlightjs
 :toc: left
 :toclevels: 2
-:sectlinks:
 
-[[overview]]
-= Overview
+[[introduction]]
+= Introduction
 
-Welcome to the latest and greatest beer listing api you will eveer see.
+== Welcome to the world of beer
 
-[[resources-index]]
-=== Listing all available resources
+Welcome to the latest and greatest beer listing api you will ever see.
 
-[listing]
-....
-include::{snippets}/index-page/curl-request.adoc[]
-....
+image::avatar.jpg[title="an image"]
 
-[listing]
-....
-include::{snippets}/index-page/http-request.adoc[]
-....
+[[access-resources]]
+= Access resources
 
-[listing]
-....
-include::{snippets}/index-page/http-response.adoc[]
-....
+[[index-links]]
+== Index
 
-[listing]
-....
-include::{snippets}/index-page/httpie-request.adoc[]
-....
+=== List available resource
 
-[listing]
-....
-include::{snippets}/index-page/links.adoc[]
-....
+Get all available resources within the beer app.
 
-[listing]
-....
-include::{snippets}/index-page/response-fields.adoc[]
-....
+=== Response structure
+include::{snippets}/index-links/response-fields.adoc[]
 
-[[resources-beer-list]]
-=== Listing beers
+[[index-links-links]]
+=== Links
+include::{snippets}/index-links/links.adoc[]
+
+=== Request
+
+include::{snippets}/index-links/curl-request.adoc[]
+
+==== Response
+
+include::{snippets}/index-links/http-response.adoc[]
+
+[[beers]]
+== Beers
+
+[[beer-list]]
+=== List beers
 
 This is how you will get a list of fresh beers.
 
@@ -62,3 +60,41 @@ include::{snippets}/beer-list/curl-request.adoc[]
 
 include::{snippets}/beer-list/http-response.adoc[]
 
+[[beer-delete]]
+=== Delete beer
+
+Thirsty? Delete a beer from the stack. *cheers*
+
+==== Example request
+
+include::{snippets}/beer-delete/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/beer-delete/http-response.adoc[]
+
+[[beer-create]]
+=== Create beer
+
+Empty fridge? Go ahead and create some beer.
+
+==== Request fields
+
+include::{snippets}/beer-create/request-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/beer-create/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/beer-create/http-response.adoc[]
+
+[[breweries]]
+== Breweries
+
+[[brewery-list]]
+=== List breweries
+
+Who are the wonderful people behind a cold fresh beer?
+`[...]`
