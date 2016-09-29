@@ -48,7 +48,13 @@ public class BeerRepositoryTest {
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context)
-                .apply(documentationConfiguration(restDocumentation)).build();
+                .apply(documentationConfiguration(restDocumentation)
+//                        .uris()
+//                            .withScheme("https://")
+//                            .withHost("example.com")
+//                            .withPort(443)
+                )
+                .build();
     }
 
     @Test
