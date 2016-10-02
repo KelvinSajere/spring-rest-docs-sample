@@ -39,60 +39,7 @@ include::{snippets}/index-links/curl-request.adoc[]
 include::{snippets}/index-links/http-response.adoc[]
 
 [[beers]]
-== Beers
-
-[[beer-list]]
-=== List beers
-
-This is how you will get a list of fresh beers.
-
-==== Response structure
-
-include::{snippets}/beer-list/response-fields.adoc[]
-
-==== Example request
-
-include::{snippets}/beer-list/curl-request.adoc[]
-
-==== Example response
-
-include::{snippets}/beer-list/http-response.adoc[]
-
-[[beer-delete]]
-=== Delete beer
-
-Thirsty? Delete a beer from the stack. *cheers*
-
-==== Example request
-
-include::{snippets}/beer-delete/curl-request.adoc[]
-
-==== Example response
-
-include::{snippets}/beer-delete/http-response.adoc[]
-
-[[beer-create]]
-=== Create beer
-
-Empty fridge? Go ahead and create some beer.
-
-==== Request fields
-
-include::{snippets}/beer-create/request-fields.adoc[]
-
-==== Example request
-
-include::{snippets}/beer-create/curl-request.adoc[]
-
-==== Example response
-
-include::{snippets}/beer-create/http-response.adoc[]
+include::beers.adoc[]
 
 [[breweries]]
-== Breweries
-
-[[brewery-list]]
-=== List breweries
-
-Who are the wonderful people behind a cold fresh beer?
-`[...]`
+include::breweries.adoc[]

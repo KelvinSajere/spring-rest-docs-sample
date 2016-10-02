@@ -39,6 +39,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-browser</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -69,6 +73,7 @@
 						</goals>
 						<configuration>
 							<sourceDirectory>src/main/documentation</sourceDirectory>
+							<outputDirectory>${project.build.directory}/classes/static/documentation</outputDirectory>
 							<backend>html</backend>
 							<doctype>book</doctype>
 							<imagesDir>img</imagesDir>
@@ -79,26 +84,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!--<plugin>-->
-				<!--<artifactId>maven-resources-plugin</artifactId>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<id>copy-resources</id>-->
-						<!--<phase>prepare-package</phase>-->
-						<!--<goals>-->
-							<!--<goal>copy-resources</goal>-->
-						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<outputDirectory>${project.build.outputDirectory}/static/docs</outputDirectory>-->
-							<!--<resources>-->
-								<!--<resource>-->
-									<!--<directory>${project.build.directory}/generated-docs</directory>-->
-								<!--</resource>-->
-							<!--</resources>-->
-						<!--</configuration>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
 		</plugins>
 	</build>
 

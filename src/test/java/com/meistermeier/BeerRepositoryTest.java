@@ -61,8 +61,9 @@ public class BeerRepositoryTest {
     public void index() throws Exception {
         mockMvc.perform(RestDocumentationRequestBuilders.get("/")).andExpect(status().isOk())
                 .andDo(document("index-links", links(
-                        linkWithRel("breweries").description("The <<brewery-list,Brewery resources>>"),
-                        linkWithRel("beers").description("The <<beer-list,Beer resources>>"),
+                        linkWithRel("beerapi:breweries").description("The <<brewery-list,Brewery resources>>"),
+                        linkWithRel("beerapi:beers").description("The <<beer-list,Beer resources>>"),
+                        linkWithRel("curies").description("Curies for documentation"),
                         linkWithRel("profile").description("The ALPS profile for the service")
                         ),
                         responseFields(fieldWithPath("_links").description("<<index-links-links,Links>> to other resources"))
@@ -74,10 +75,11 @@ public class BeerRepositoryTest {
         mockMvc.perform(RestDocumentationRequestBuilders.get("/beers")).andExpect(status().isOk())
                 .andDo(document("beer-list", links(
                         linkWithRel("self").description("Canonical link for this resource"),
-                        linkWithRel("profile").description("The ALPS profile for the service")
+                        linkWithRel("profile").description("The ALPS profile for the service"),
+                        linkWithRel("curies").description("Curies for documentation")
                         ),
                         responseFields(
-                                fieldWithPath("_embedded.beers").description("A list of <<beers, Beer resources>>"),
+                                fieldWithPath("_embedded.beerapi:beers").description("A list of <<beers, Beer resources>>"),
                                 fieldWithPath("_links").description("<<index-links-links,Links>> to other resources")
                         )
 
@@ -113,8 +115,9 @@ public class BeerRepositoryTest {
         mockMvc.perform(RestDocumentationRequestBuilders.get(beerLocation)).andExpect(status().isOk())
                 .andDo(document("beer-get", links(
                         linkWithRel("self").description("Canonical link for this resource"),
-                        linkWithRel("beer").description("The <<beers, Beer resource>> itself"),
-                        linkWithRel("brewery").description("The producing <<breweries, Brewery resource>>")
+                        linkWithRel("beerapi:beer").description("The <<beers, Beer resource>> itself"),
+                        linkWithRel("beerapi:brewery").description("The producing <<breweries, Brewery resource>>"),
+                        linkWithRel("curies").description("Curies for documentation")
                         ),
                         responseFields(
                                 fieldWithPath("name").description("The name of the tasty fresh liquid"),
