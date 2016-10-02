@@ -1,4 +1,5 @@
 = Spring Rest Docs sample
+
 image:https://travis-ci.org/meistermeier/spring-rest-docs-sample.svg?branch=master["Build Status", link="https://travis-ci.org/meistermeier/spring-rest-docs-sample"]
 
 == Summary
