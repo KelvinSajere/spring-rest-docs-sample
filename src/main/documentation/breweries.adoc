@@ -1,7 +1,0 @@
-== Breweries
-
-[[brewery-list]]
-=== List breweries
-
-Who are the wonderful people behind a cold fresh beer?
-`[...]`

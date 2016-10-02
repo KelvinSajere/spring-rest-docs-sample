@@ -9,6 +9,11 @@ This is how you will get a list of fresh beers.
 
 include::{snippets}/beer-list/response-fields.adoc[]
 
+[[beers-links]]
+==== Links
+
+include::{snippets}/beer-list/links.adoc[]
+
 ==== Example request
 
 include::{snippets}/beer-list/curl-request.adoc[]
@@ -16,6 +21,28 @@ include::{snippets}/beer-list/curl-request.adoc[]
 ==== Example response
 
 include::{snippets}/beer-list/http-response.adoc[]
+
+[[beer-get]]
+=== Get a beer
+
+Get the beer of your dreams.
+
+==== Response structure
+
+include::{snippets}/beer-get/response-fields.adoc[]
+
+[[beer-links]]
+==== Links
+
+include::{snippets}/beer-get/links.adoc[]
+
+==== Example request
+
+include::{snippets}/beer-get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/beer-get/http-response.adoc[]
 
 [[beer-delete]]
 === Delete beer

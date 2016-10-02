@@ -2,6 +2,7 @@ package com.meistermeier;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meistermeier.beer.BeerApplication;
+import com.meistermeier.beer.Brewery;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
+import org.springframework.restdocs.snippet.Attributes;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,9 +26,7 @@ import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.li
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
-import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -61,8 +61,7 @@ public class BeerRepositoryTest {
     public void index() throws Exception {
         mockMvc.perform(RestDocumentationRequestBuilders.get("/")).andExpect(status().isOk())
                 .andDo(document("index-links", links(
-                        linkWithRel("beerapi:breweries").description("The <<brewery-list,Brewery resources>>"),
-                        linkWithRel("beerapi:beers").description("The <<beer-list,Beer resources>>"),
+                        linkWithRel("beerapi:beers").description("The <<beers,Beer resources>>"),
                         linkWithRel("curies").description("Curies for documentation"),
                         linkWithRel("profile").description("The ALPS profile for the service")
                         ),
@@ -74,13 +73,13 @@ public class BeerRepositoryTest {
     public void beers() throws Exception {
         mockMvc.perform(RestDocumentationRequestBuilders.get("/beers")).andExpect(status().isOk())
                 .andDo(document("beer-list", links(
-                        linkWithRel("self").description("Canonical link for this resource"),
+                        linkWithRel("self").ignored(),
                         linkWithRel("profile").description("The ALPS profile for the service"),
-                        linkWithRel("curies").description("Curies for documentation")
+                        linkWithRel("curies").ignored()
                         ),
                         responseFields(
                                 fieldWithPath("_embedded.beerapi:beers").description("A list of <<beers, Beer resources>>"),
-                                fieldWithPath("_links").description("<<index-links-links,Links>> to other resources")
+                                fieldWithPath("_links").description("<<beers-links,Links>> to other resources")
                         )
 
                 ));
@@ -90,14 +89,17 @@ public class BeerRepositoryTest {
     public void createBeer() throws Exception {
         Map<String, Object> beer = new HashMap<>();
         beer.put("name", "Wolters Pilsener Premium");
-        beer.put("brewery", "Wolters");
+        Brewery brewery = new Brewery();
+        brewery.setName("Wolters");
+        beer.put("brewery", brewery);
         mockMvc.perform(post("/beers")
                 .content(objectMapper.writeValueAsString(beer)))
                 .andExpect(status().isCreated())
                 .andDo(document("beer-create",
                         requestFields(
                                 fieldWithPath("name").description("Name of your beer"),
-                                fieldWithPath("brewery").description("Producer"))));
+                                fieldWithPath("brewery").description("Producer")
+                                        .attributes(Attributes.key("constraints").value("must provide a `name` property")))));
     }
 
     @Test
@@ -114,14 +116,13 @@ public class BeerRepositoryTest {
 
         mockMvc.perform(RestDocumentationRequestBuilders.get(beerLocation)).andExpect(status().isOk())
                 .andDo(document("beer-get", links(
-                        linkWithRel("self").description("Canonical link for this resource"),
+                        linkWithRel("self").ignored(),
                         linkWithRel("beerapi:beer").description("The <<beers, Beer resource>> itself"),
-                        linkWithRel("beerapi:brewery").description("The producing <<breweries, Brewery resource>>"),
-                        linkWithRel("curies").description("Curies for documentation")
+                        linkWithRel("curies").ignored()
                         ),
                         responseFields(
                                 fieldWithPath("name").description("The name of the tasty fresh liquid"),
-                                fieldWithPath("_links").description("<<index-links-links,Links>> to other resources")
+                                fieldWithPath("_links").description("<<beer-links,Links>> to other resources")
                         )
 
                 ));
