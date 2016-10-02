@@ -1,0 +1,12 @@
+= Spring Rest Docs sample
+
+== Summary
+This project shows how to generate asciidoctor snippets to be included in a documentation using http://projects.spring.io/spring-restdocs/[Spring Rest Docs].
+Have a look at https://github.com/meistermeier/spring-rest-docs-sample/blob/master/src/test/java/com/meistermeier/BeerRepositoryTest.java[_BeerRepositoryTest.java_] that creates the documentation snippets if the tests pass.
+
+== Compiled documentation paths
+You can find the generated snippets after running `mvn package` in the _target/generated-snippets_ folder. The documentation will be placed in the _target/classes/static/documentation_ folder to be served as static content from the spring boot application.
+
+== Compile and run
+Just run `mvn clean package spring-boot:run` and you get the sample application running at http://localhost:8888. If you call this address in the browser you will be redirected to the embedded HAL browser at http://localhost:8888/browser/index.html#/.
+The compiled documentation is provided here: http://localhost:8888/documentation/beerapi.html
