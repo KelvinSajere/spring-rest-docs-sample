@@ -8,5 +8,7 @@ Have a look at https://github.com/meistermeier/spring-rest-docs-sample/blob/mast
 You can find the generated snippets after running `mvn package` in the _target/generated-snippets_ folder. The documentation will be placed in the _target/classes/static/documentation_ folder to be served as static content from the spring boot application.
 
 == Compile and run
-Just run `mvn clean package spring-boot:run` and you get the sample application running at http://localhost:8888. If you call this address in the browser you will be redirected to the embedded HAL browser at http://localhost:8888/browser/index.html#/.
-The compiled documentation is provided here: http://localhost:8888/documentation/beerapi.html
+Just run `mvn package spring-boot:run` to get the sample application running at http://localhost:8888.
+The `package` phase is important to create the snippets, compile the documentation and place it at a static path for spring boot to pick up.
+If you call this address in the browser you will be redirected to the embedded HAL browser (http://localhost:8888/browser/index.html#/).
+The compiled documentation is available at http://localhost:8888/documentation/beerapi.html.
